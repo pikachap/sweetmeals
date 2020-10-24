@@ -11,10 +11,15 @@ h1, h2, h3 {
     padding: 30px;
     background-color: #634f32;
     color: white;
+    margin: 0;
 }
 
 .row-content {
     padding: 50px 0;
     border-bottom: 1px ridge;
     min-height: 200px;
+}
+
+.navbar {
+    background-color: #4d3c22;
 }
