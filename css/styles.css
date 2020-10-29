@@ -23,3 +23,9 @@ h1, h2, h3 {
 .navbar {
     background-color: #4d3c22;
 }
+
+.collapsing {
+    -webkit-transition: none;
+    transition: none;
+    display: none;
+}
