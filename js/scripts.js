@@ -1,10 +1,11 @@
 $(function() {
     $("#cakeBtn").click(function(){
         if ($(".cake").is(".collapse:not(.show)")) {
+            $(".ftoast").collapse("hide");
             $(".cake").collapse("show");
             $(".fudge").collapse("hide");
             $(".croll").collapse("hide");
-            $(removeBorder("fub1", "crb1"));
+            $(removeBorder("fub1", "crb1", "ftb1"));
             $(function(){
                 var v = document.getElementById("cab1");
                 v.classList.add("border");
@@ -37,10 +38,11 @@ $(function() {
 
     $("#fudgeBtn").click(function(){
         if ($(".fudge").is(".collapse:not(.show)")) {
+            $(".ftoast").collapse("hide");
             $(".fudge").collapse("show");
             $(".cake").collapse("hide");
             $(".croll").collapse("hide");
-            $(removeBorder("cab1", "crb1"));
+            $(removeBorder("cab1", "crb1", "ftb1"));
             $(function(){
                 var v = document.getElementById("fub1");
                 v.classList.add("border");
@@ -75,10 +77,11 @@ $(function() {
 
     $("#crollBtn").click(function(){
         if ($(".croll").is(".collapse:not(.show)")) {
+            $(".ftoast").collapse("hide");
             $(".croll").collapse("show");
             $(".fudge").collapse("hide");
             $(".cake").collapse("hide");
-            $(removeBorder("fub1", "cab1"));
+            $(removeBorder("fub1", "cab1", "ftb1"));
             $(function(){
                 var v = document.getElementById("crb1");
                 v.classList.add("border");
@@ -109,6 +112,42 @@ $(function() {
         }
     })
 
+    $("#ftoastBtn").click(function(){
+        if ($(".ftoast").is(".collapse:not(.show)")) {
+            $(".ftoast").collapse("show");
+            $(".croll").collapse("hide");
+            $(".fudge").collapse("hide");
+            $(".cake").collapse("hide");
+            $(removeBorder("fub1", "cab1", "crb1"));
+            $(function(){
+                var v = document.getElementById("ftb1");
+                v.classList.add("border");
+                v.classList.add("border-dark");
+                v.classList.add("border-right-0");
+            })
+            $(function(){
+                var v = document.getElementById("ftb2");
+                v.classList.add("border");
+                v.classList.add("border-dark");
+                v.classList.add("border-left-0");
+            })
+        }
+        else {
+            $(".ftoast").collapse("hide");
+            $(function(){
+                var v = document.getElementById("ftb1");
+                v.classList.remove("border");
+                v.classList.remove("border-dark");
+                v.classList.remove("border-right-0");
+            })
+            $(function(){
+                var v = document.getElementById("ftb2");
+                v.classList.remove("border");
+                v.classList.remove("border-dark");
+                v.classList.remove("border-left-0");
+            })
+        }
+    })
 
 
 
@@ -118,14 +157,19 @@ $(function() {
 
 
 
-    function removeBorder(x,y) {
-        var v = document.getElementById(x);
-        var b = document.getElementById(y);
-        v.classList.remove("border");
-        v.classList.remove("border-dark");
-        v.classList.remove("border-left-0");
-        b.classList.remove("border");
-        b.classList.remove("border-dark");
-        b.classList.remove("border-left-0");
+
+    function removeBorder(x,y,z) {
+        var b1 = document.getElementById(x);
+        var b2 = document.getElementById(y);
+        var b3 = document.getElementById(z);
+        b1.classList.remove("border");
+        b1.classList.remove("border-dark");
+        b1.classList.remove("border-left-0");
+        b2.classList.remove("border");
+        b2.classList.remove("border-dark");
+        b2.classList.remove("border-left-0");
+        b3.classList.remove("border");
+        b3.classList.remove("border-dark");
+        b3.classList.remove("border-left-0");
     }
 });
