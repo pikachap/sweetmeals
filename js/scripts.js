@@ -5,7 +5,6 @@ $(function() {
             $(".cake").collapse("show");
             $(".fudge").collapse("hide");
             $(".croll").collapse("hide");
-            $(removeBorder("fub1", "crb1", "ftb1"));
             $(function(){
                 var v = document.getElementById("cab1");
                 v.classList.add("border");
@@ -18,6 +17,7 @@ $(function() {
                 v.classList.add("border-dark");
                 v.classList.add("border-left-0");
             })
+            $(removeBorder("fub1", "crb1", "ftb1"));
         }
         else {
             $(".cake").collapse("hide");
@@ -42,7 +42,6 @@ $(function() {
             $(".fudge").collapse("show");
             $(".cake").collapse("hide");
             $(".croll").collapse("hide");
-            $(removeBorder("cab1", "crb1", "ftb1"));
             $(function(){
                 var v = document.getElementById("fub1");
                 v.classList.add("border");
@@ -55,6 +54,7 @@ $(function() {
                 v.classList.add("border-dark");
                 v.classList.add("border-left-0");
             })
+            $(removeBorder("cab1", "crb1", "ftb1"));
         }
         else {
             $(".fudge").collapse("hide");
@@ -81,7 +81,6 @@ $(function() {
             $(".croll").collapse("show");
             $(".fudge").collapse("hide");
             $(".cake").collapse("hide");
-            $(removeBorder("fub1", "cab1", "ftb1"));
             $(function(){
                 var v = document.getElementById("crb1");
                 v.classList.add("border");
@@ -94,6 +93,7 @@ $(function() {
                 v.classList.add("border-dark");
                 v.classList.add("border-left-0");
             })
+            $(removeBorder("fub1", "cab1", "ftb1"));
         }
         else {
             $(".croll").collapse("hide");
@@ -118,7 +118,6 @@ $(function() {
             $(".croll").collapse("hide");
             $(".fudge").collapse("hide");
             $(".cake").collapse("hide");
-            $(removeBorder("fub1", "cab1", "crb1"));
             $(function(){
                 var v = document.getElementById("ftb1");
                 v.classList.add("border");
@@ -131,6 +130,7 @@ $(function() {
                 v.classList.add("border-dark");
                 v.classList.add("border-left-0");
             })
+            $(removeBorder("fub1", "cab1", "crb1"));
         }
         else {
             $(".ftoast").collapse("hide");
