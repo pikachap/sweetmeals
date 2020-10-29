@@ -159,17 +159,31 @@ $(function() {
 
 
     function removeBorder(x,y,z) {
-        var b1 = document.getElementById(x);
-        var b2 = document.getElementById(y);
-        var b3 = document.getElementById(z);
-        b1.classList.remove("border");
-        b1.classList.remove("border-dark");
-        b1.classList.remove("border-left-0");
-        b2.classList.remove("border");
-        b2.classList.remove("border-dark");
-        b2.classList.remove("border-left-0");
-        b3.classList.remove("border");
-        b3.classList.remove("border-dark");
-        b3.classList.remove("border-left-0");
+
+        let myArr = [x,y,z];
+        let bv = 0;
+        while (bv < myArr.length){
+            var b1 = document.getElementById(myArr[bv]);
+            b1.classList.remove("border");
+            b1.classList.remove("border-dark");
+            b1.classList.remove("border-left-0");
+            bv = ++bv;
+        }
+
+        //var b1 = document.getElementById(x);
+        //var b2 = document.getElementById(y);
+        //var b3 = document.getElementById(z);
+        //b1.classList.remove("border");
+        //b1.classList.remove("border-dark");
+        //b1.classList.remove("border-left-0");
+        //b2.classList.remove("border");
+        //b2.classList.remove("border-dark");
+        //b2.classList.remove("border-left-0");
+        //b3.classList.remove("border");
+        //b3.classList.remove("border-dark");
+        //b3.classList.remove("border-left-0");
     }
 });
+
+
+
