@@ -1,189 +1,122 @@
 $(function() {
+    let allId = ["cab1", "cab2", "fub1", "fub2", "crb1", "crb2", "ftb1", "ftb2"];
+    let allClass = [".cake", ".fudge", ".croll", ".ftoast"];
+
+
+
     $("#cakeBtn").click(function(){
-        if ($(".cake").is(".collapse:not(.show)")) {
-            $(".ftoast").collapse("hide");
-            $(".cake").collapse("show");
-            $(".fudge").collapse("hide");
-            $(".croll").collapse("hide");
-            $(function(){
-                var v = document.getElementById("cab1");
-                v.classList.add("border");
-                v.classList.add("border-dark");
-                v.classList.add("border-right-0");
-            })
-            $(function(){
-                var v = document.getElementById("cab2");
-                v.classList.add("border");
-                v.classList.add("border-dark");
-                v.classList.add("border-left-0");
-            })
-            $(removeBorder("fub1", "crb1", "ftb1"));
-        }
-        else {
-            $(".cake").collapse("hide");
-            $(function(){
-                var v = document.getElementById("cab1");
-                v.classList.remove("border");
-                v.classList.remove("border-dark");
-                v.classList.remove("border-right-0");
-            })
-            $(function(){
-                var v = document.getElementById("cab2");
-                v.classList.remove("border");
-                v.classList.remove("border-dark");
-                v.classList.remove("border-left-0");
-            })
-        }
+        $(toggleMe(".cake", "cab1", "cab2"));
     })
 
     $("#fudgeBtn").click(function(){
-        if ($(".fudge").is(".collapse:not(.show)")) {
-            $(".ftoast").collapse("hide");
-            $(".fudge").collapse("show");
-            $(".cake").collapse("hide");
-            $(".croll").collapse("hide");
-            $(function(){
-                var v = document.getElementById("fub1");
-                v.classList.add("border");
-                v.classList.add("border-dark");
-                v.classList.add("border-right-0");
-            })
-            $(function(){
-                var v = document.getElementById("fub2");
-                v.classList.add("border");
-                v.classList.add("border-dark");
-                v.classList.add("border-left-0");
-            })
-            $(removeBorder("cab1", "crb1", "ftb1"));
-        }
-        else {
-            $(".fudge").collapse("hide");
-            $(function(){
-                var v = document.getElementById("fub1");
-                v.classList.remove("border");
-                v.classList.remove("border-dark");
-                v.classList.remove("border-right-0");
-            })
-            $(function(){
-                var v = document.getElementById("fub2");
-                v.classList.remove("border");
-                v.classList.remove("border-dark");
-                v.classList.remove("border-left-0");
-            })
-        }
+        $(toggleMe(".fudge", "fub1", "fub2"));
     })
 
-
-
     $("#crollBtn").click(function(){
-        if ($(".croll").is(".collapse:not(.show)")) {
-            $(".ftoast").collapse("hide");
-            $(".croll").collapse("show");
-            $(".fudge").collapse("hide");
-            $(".cake").collapse("hide");
-            $(function(){
-                var v = document.getElementById("crb1");
-                v.classList.add("border");
-                v.classList.add("border-dark");
-                v.classList.add("border-right-0");
-            })
-            $(function(){
-                var v = document.getElementById("crb2");
-                v.classList.add("border");
-                v.classList.add("border-dark");
-                v.classList.add("border-left-0");
-            })
-            $(removeBorder("fub1", "cab1", "ftb1"));
-        }
-        else {
-            $(".croll").collapse("hide");
-            $(function(){
-                var v = document.getElementById("crb1");
-                v.classList.remove("border");
-                v.classList.remove("border-dark");
-                v.classList.remove("border-right-0");
-            })
-            $(function(){
-                var v = document.getElementById("crb2");
-                v.classList.remove("border");
-                v.classList.remove("border-dark");
-                v.classList.remove("border-left-0");
-            })
-        }
+        $(toggleMe(".croll", "crb1", "crb2"));
     })
 
     $("#ftoastBtn").click(function(){
-        if ($(".ftoast").is(".collapse:not(.show)")) {
-            $(".ftoast").collapse("show");
-            $(".croll").collapse("hide");
-            $(".fudge").collapse("hide");
-            $(".cake").collapse("hide");
-            $(function(){
-                var v = document.getElementById("ftb1");
-                v.classList.add("border");
-                v.classList.add("border-dark");
-                v.classList.add("border-right-0");
-            })
-            $(function(){
-                var v = document.getElementById("ftb2");
-                v.classList.add("border");
-                v.classList.add("border-dark");
-                v.classList.add("border-left-0");
-            })
-            $(removeBorder("fub1", "cab1", "crb1"));
-        }
-        else {
-            $(".ftoast").collapse("hide");
-            $(function(){
-                var v = document.getElementById("ftb1");
-                v.classList.remove("border");
-                v.classList.remove("border-dark");
-                v.classList.remove("border-right-0");
-            })
-            $(function(){
-                var v = document.getElementById("ftb2");
-                v.classList.remove("border");
-                v.classList.remove("border-dark");
-                v.classList.remove("border-left-0");
-            })
-        }
+        $(toggleMe(".ftoast", "ftb1", "ftb2"));
     })
 
 
 
 
+    function toggleMe(x, y, z) {
+        if ($(x).is(".collapse:not(.show)")) {
+            $(x).collapse("show");
+            $(hideAll(x));
+            $(showMe(y, z));
+            $(removeBorder(y, z));
+        }
+        else {
+            $(x).collapse("hide");
+            hideMe(y, z);
+        }
+    }
+
+    function hideAll(x) {
+        let cla1 = allClass.indexOf(x);
+        let cla12 = cla1 + 1;
+        let cla2 = allClass.length;
+        let hide1 = allClass.slice(0, cla1);
+        let hide2 = allClass.slice(cla12, cla2);
+        let hideFin = hide1.concat(hide2);
+        let hv = 0;
+        while (hv < hideFin.length){
+            var h1 = hideFin[hv];
+            if (h1 == null) {
+                continue;
+            }
+            $(h1).collapse("hide");
+            hv = ++hv;
+            
+        }
+    }
+
+    function showMe(x, y){
+        $(function(){
+            var v = document.getElementById(x);
+            v.classList.add("border");
+            v.classList.add("border-dark");
+            v.classList.add("border-right-0");
+        })
+        $(function(){
+            var v = document.getElementById(y);
+            v.classList.add("border");
+            v.classList.add("border-dark");
+            v.classList.add("border-left-0");
+        })
+    }
+
+    function hideMe(x, y){
+        $(function(){
+            var v = document.getElementById(x);
+            v.classList.remove("border");
+            v.classList.remove("border-dark");
+            v.classList.remove("border-right-0");
+        })
+        $(function(){
+            var v = document.getElementById(y);
+            v.classList.remove("border");
+            v.classList.remove("border-dark");
+            v.classList.remove("border-left-0");
+        })
+    }
 
 
-
-
-
-
-    function removeBorder(x,y,z) {
-
-        let myArr = [x,y,z];
+    function removeBorder(x,y) {
+        let val1 = allId.indexOf(x);
+        let val12 = val1 + 1;
+        let val2 = allId.indexOf(y);
+        let val22 = val2 + 1;
+        let val3 = allId.length;
+        let remBor1 = allId.slice(0, val1);
+        let remBor2 = allId.slice(val12, val2);
+        let remBor3 = allId.slice(val22, val3);
+        let remFin = remBor1.concat(remBor2, remBor3);
         let bv = 0;
-        while (bv < myArr.length){
-            var b1 = document.getElementById(myArr[bv]);
+        while (bv < remFin.length){
+            var b1 = document.getElementById(remFin[bv]);
+            if (b1 == null) {
+                bv = ++bv;
+                continue;
+            }
             b1.classList.remove("border");
             b1.classList.remove("border-dark");
             b1.classList.remove("border-left-0");
             bv = ++bv;
         }
-
-        //var b1 = document.getElementById(x);
-        //var b2 = document.getElementById(y);
-        //var b3 = document.getElementById(z);
-        //b1.classList.remove("border");
-        //b1.classList.remove("border-dark");
-        //b1.classList.remove("border-left-0");
-        //b2.classList.remove("border");
-        //b2.classList.remove("border-dark");
-        //b2.classList.remove("border-left-0");
-        //b3.classList.remove("border");
-        //b3.classList.remove("border-dark");
-        //b3.classList.remove("border-left-0");
     }
+
+
+
+
+
+
+
+
+
+
 });
-
-
-
