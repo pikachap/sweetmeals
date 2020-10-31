@@ -1,6 +1,6 @@
 $(function() {
-    let allId = ["cab1", "cab2", "fub1", "fub2", "crb1", "crb2", "ftb1", "ftb2"];
-    let allClass = [".cake", ".fudge", ".croll", ".ftoast"];
+    let allId = ["cab1", "cab2", "fub1", "fub2", "crb1", "crb2", "ftb1", "ftb2", "ccb1", "ccb2", "cob1", "cob2", "pab1", "pab2", "dob1", "dob2", "cub1", "cub2", "wab1", "wab2", "bmb1", "bmb2", "apb1", "apb2"];
+    let allClass = [".cake", ".fudge", ".croll", ".ftoast", ".cheesecake", ".cookies", ".pancakes", ".donut", ".waffle", ".bbmuffin", ".cupcake", ".applepie"];
 
 
 
@@ -20,6 +20,37 @@ $(function() {
         $(toggleMe(".ftoast", "ftb1", "ftb2"));
     })
 
+    $("#cheesecakeBtn").click(function(){
+        $(toggleMe(".cheesecake", "ccb1", "ccb2"));
+    })
+
+    $("#cookiesBtn").click(function(){
+        $(toggleMe(".cookies", "cob1", "cob2"));
+    })
+
+    $("#pancakesBtn").click(function(){
+        $(toggleMe(".pancakes", "pab1", "pab2"));
+    })
+
+    $("#donutBtn").click(function(){
+        $(toggleMe(".donut", "dob1", "dob2"));
+    })
+
+    $("#cupcakeBtn").click(function(){
+        $(toggleMe(".cupcake", "cub1", "cub2"));
+    })
+
+    $("#waffleBtn").click(function(){
+        $(toggleMe(".waffle", "wab1", "wab2"));
+    })
+
+    $("#bbmuffinBtn").click(function(){
+        $(toggleMe(".bbmuffin", "bmb1", "bmb2"));
+    })
+
+    $("#applepieBtn").click(function(){
+        $(toggleMe(".applepie", "apb1", "apb2"));
+    })
 
 
 
